@@ -1,5 +1,5 @@
-# RAD  
-Project page of [**"RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning"**](https://hgao-cv.github.io/RAD)
+# RAD-2  
+Project page of [**"RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning"**](https://hgao-cv.github.io/RAD-2)
 
 We have released the core code for the RL training part on GitHub: [https://github.com/hustvl/RAD](https://github.com/hustvl/RAD).
 
