@@ -132,15 +132,52 @@
 
 </section>
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-2" style="white-space: nowrap;">Closed-loop Evaluation in 3DGS-based Environments</h2>
     <video controls width="100%">
       <source src="./static/videos/rad_long.mp4" type="video/mp4">
     </video>
   </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="white-space: nowrap;">Real-World Closed-loop Evaluation</h2>
+    
+    <!-- 视频切换按钮 -->
+    <div style="margin: 12px 0; display: flex; gap: 10px;">
+      <button id="btnBilibili" class="button is-link is-small" style="flex:1;">Bilibili</button>
+      <button id="btnYoutube" class="button is-info is-small" style="flex:1;">YouTube</button>
+    </div>
+
+    <!-- 视频嵌入容器 -->
+    <div style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; overflow: hidden;">
+      <iframe 
+        id="videoFrame" 
+        src="https://player.bilibili.com/player.html?bvid=你的B站BV号&page=1&as_wide=1&high_quality=1" 
+        style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 </section>
 
+<script>
+  // 切换到 B 站
+  document.getElementById('btnBilibili').addEventListener('click', function() {
+    document.getElementById('videoFrame').src = 
+      "https://player.bilibili.com/player.html?bvid=你的B站BV号&page=1&as_wide=1&high_quality=1";
+  });
+
+  // 切换到 YouTube
+  document.getElementById('btnYoutube').addEventListener('click', function() {
+    document.getElementById('videoFrame').src = 
+      "https://www.youtube.com/embed/你的YouTube视频ID?autoplay=0";
+  });
+</script>
+
+  
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-2">Framework</h2>
