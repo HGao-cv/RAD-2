@@ -40,483 +40,542 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    /* 右侧固定侧边栏 */
+    .sidebar-sticky {
+      position: sticky;
+      top: 40px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .sidebar-sticky p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #222;
+    }
+    .sidebar-sticky a {
+      display: block;
+      padding: 6px 0;
+      color: #3273dc;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .sidebar-sticky a:hover {
+      color: #1f5abb;
+    }
+
+    /* 让主体 + 侧边栏并排 */
+    .page-container {
+      display: flex;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .main-content {
+      flex: 1;
+    }
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+    }
+
+    /* clip label 紧贴左上角（你之前要的效果） */
+    .clip-label {
+      min-width: 70px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-top: 0px !important;
+      margin-top: 0px !important;
+      white-space: nowrap;
+    }
+  </style>
+  
 </head>
 <body>
 
 <script src="https://hgao-cv.github.io/Research-portal/nav.js"></script>
+
+<!-- 整体布局：主体 + 侧边栏 -->
+<div class="page-container">
+
+  <!-- 主要内容 -->
+  <div class="main-content">
   
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="white-space: nowrap;">
-            RAD-2: Scaling Reinforcement Learning 
-          </h1>
-          <h1 class="title is-1 publication-title" style="white-space: nowrap;">
-            in a Generator-Discriminator Framework
-          </h1>
-          
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Hao Gao</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=PIeNN2gAAAAJ&hl=en&oi=ao">Shaoyu Chen</a><sup>2,†</sup>,</span>
-            <span class="author-block">
-              <a href="https://stevenzzz07.github.io/">Yifan Zhu</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://ambitious-idiot.github.io/">Yuehao Song</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://eic.hust.edu.cn/professor/liuwenyu/">Wenyu Liu</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=pCY-bikAAAAJ&hl=en">Qian Zhang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://xwcv.github.io/">Xinggang Wang</a><sup>1,✉</sup>
-            </span>
-          </div>
-          
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Huazhong University of Science &amp; Technology</span>
-            <span class="author-block"><sup>2</sup>Horizon Robotics</span>
-            <p></p>
-            <span class="author-block"><sup>†</sup>Project Lead.</span>
-            <span class="author-block"><sup>✉</sup>Corresponding Author.</span>
-
-          <!-- </div> -->
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2502.13144.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/hustvl/RAD"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            High-level autonomous driving requires motion planners capable of modeling multimodal future uncertainties while ensuring robust closed-loop stability. Although diffusion-based generative planners excel at capturing complex trajectory distributions, they often suffer from optimization instabilities and a lack of effective negative feedback during imitation learning. In this paper, we propose RAD-2, a unified framework that synergizes a diffusion-based trajectory generator with a reinforcement learning (RL)-trained discriminator. By decoupling the planning task, our framework employs a Diffusion Transformer to generate diverse candidates, while a Transformer-based discriminator is optimized via Temporally Consistent Group Relative Policy Optimization (TC-GRPO), a structured optimization paradigm that enforces behavioral coherence to mitigate the inherent challenges of credit assignment in high-dimensional action spaces. Furthermore, we introduce On-policy Generator Optimization, which transforms closed-loop feedback into structured geometric corrections to iteratively shift the generator's probability mass toward high-reward manifolds. To facilitate rapid policy evolution, we develop our RL pipeline based on BEV-Warp, a high-throughput, feature-level simulation environment that enables efficient closed-loop evaluation by directly manipulating Bird’s-Eye View features via spatial warping. Our model is pretrained on massive real-world driving datasets and further refined through closed-loop optimization across a diverse suite of safety-critical and efficiency-oriented scenarios. Comprehensive evaluations and ablation studies validate the contribution of each component, showing that our approach outperforms competitive baselines and achieves a 56% reduction in collision rate relative to strong diffusion-based planners while maintaining superior navigation efficiency.<br><br><br>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-2">Framework</h2>
-    <div class="content has-text-justified">
-      RAD-2 synergizes a Diffusion-based generator 𝒢 and a Transformer-based discriminator 𝒟 within a cyclic optimization pipeline:
-      (a) Initial Pre-training: 𝒢 is initialized via imitation learning to capture multi-modal trajectory priors from expert demonstrations.
-      (b) Closed-loop Data Collection: The joint AD policy, comprising 𝒢 for trajectory generation and 𝒟 for selection, performs continuous interactions with the BEV-Warp environment to efficiently collect rollout data for reward computation and subsequent RL training.
-      (c) Discriminator Optimization: 𝒟 is optimized via Temporally Consistent Group Relative Policy Optimization, leveraging the collected rollout data to refine its scoring capability.
-      (d) Generator Optimization: Through On-policy Generator Optimization, 𝒢 is refined using geometric corrections derived from low-reward rollouts to shift its distribution toward optimal driving behaviors.
-    </div>
-    <img src="./static/images/rad2-framev2.png">
-  </div>
-</section>
-  
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-2" style="white-space: nowrap;">Closed-loop Evaluation in Real-World</h2>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title" style="white-space: nowrap;">
+                RAD-2: Scaling Reinforcement Learning 
+              </h1>
+              <h1 class="title is-1 publication-title" style="white-space: nowrap;">
+                in a Generator-Discriminator Framework
+              </h1>
+              
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="#">Hao Gao</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=PIeNN2gAAAAJ&hl=en&oi=ao">Shaoyu Chen</a><sup>2,†</sup>,</span>
+                <span class="author-block">
+                  <a href="https://stevenzzz07.github.io/">Yifan Zhu</a><sup>2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://ambitious-idiot.github.io/">Yuehao Song</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="http://eic.hust.edu.cn/professor/liuwenyu/">Wenyu Liu</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=pCY-bikAAAAJ&hl=en">Qian Zhang</a><sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://xwcv.github.io/">Xinggang Wang</a><sup>1,✉</sup>
+                </span>
+              </div>
+              
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Huazhong University of Science &amp; Technology</span>
+                <span class="author-block"><sup>2</sup>Horizon Robotics</span>
+                <p></p>
+                <span class="author-block"><sup>†</sup>Project Lead.</span>
+                <span class="author-block"><sup>✉</sup>Corresponding Author.</span>
     
-    <!-- 美化版切换按钮组（带选中高亮） -->
-    <div style="margin: 12px 0; display: flex; gap: 4px; background: #f0f0f0; border-radius: 8px; padding: 4px; width: fit-content;">
-      <button id="btnBilibili" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #fb7299; color: white;">Bilibili</button>
-      <button id="btnYoutube" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #e0e0e0; color: #333;">YouTube</button>
-    </div>
-
-    <!-- 视频嵌入容器 -->
-    <div style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; overflow: hidden;">
-      <iframe 
-        id="videoFrame" 
-        src="https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0" 
-        style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<script>
-const btnB = document.getElementById('btnBilibili');
-const btnY = document.getElementById('btnYoutube');
-const frame = document.getElementById('videoFrame');
-
-// 初始化默认选中B站
-let currentSource = 'bilibili';
-
-// 切换按钮样式 + 视频源
-const switchSource = (source) => {
-  if (source === currentSource) return; // 重复点击不重复加载
-  
-  if (source === 'bilibili') {
-    // B站样式：品牌粉+白字
-    btnB.style.background = '#fb7299';
-    btnB.style.color = 'white';
-    btnY.style.background = '#e0e0e0';
-    btnY.style.color = '#333';
-    frame.src = "https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0";
-    currentSource = 'bilibili';
-  } else {
-    // YouTube样式：品牌红+白字
-    btnY.style.background = '#ff0000';
-    btnY.style.color = 'white';
-    btnB.style.background = '#e0e0e0';
-    btnB.style.color = '#333';
-    frame.src = "https://www.youtube.com/embed/ohtIe1eUiOU?autoplay=0";
-    currentSource = 'youtube';
-  }
-};
-
-// 绑定点击事件
-btnB.addEventListener('click', () => switchSource('bilibili'));
-btnY.addEventListener('click', () => switchSource('youtube'));
-</script>
-
-<style>
-  .container.fixed-width {
-    max-width: 1000px; 
-    margin: 0 auto;
-  }
-  .title-container {
-    padding-left: 0px;  
-  }
-  .columns {
-    margin-top: 20px; 
-  }
-</style>
-
-<head>
-  <style>
-    .video-container-wrapper {
-      background-color: #f0f0f0; 
-      padding: 20px; 
-      border-radius: 5px; 
-    }
-
-    .video-container-wrapper video {
-      width: 100%; 
-      border-radius: 8px; 
-    }
-
-    .columns {
-      margin-bottom: 20px; 
-    }
-
-    .background-container {
-      background-color: #f0f0f0; 
-      padding: 30px; 
-      border-radius: 15px; 
-    }
-  </style>
-</head>
-
-<link rel="stylesheet" href="./style.css">
-  
-<div class="container fixed-width">
-  <div class="title-container"> 
-    <h2 class="title is-2">Closed-loop Evaluation in BEV-Warp Environment</h2> 
-    <div style="height: 3px;"></div>
-    <p class="subtitle is-5">Top: IL Baseline | Bottom: RAD-2</p>  
-  
-    <!-- 新增：视频内容说明（清晰、专业、美观） -->
-  <div style="height: 8px;"></div>
-    <div class="content has-text-grey-dark" style="line-height: 1.7; font-size: 1.05rem;">
-      <p><strong>Video Content Explanation:</strong></p>
-      <ul style="padding-left: 1.2em; margin: 0;">
-        <li style="margin-bottom: 0.25rem;"><strong>1st column</strong>: Reference Input (front-view camera visualization only; full input is multi-dimensional);</li>
-        <li style="margin-bottom: 0.25rem;"><strong>2nd column</strong>: Warped BEV Feature Input (dimensionally reduced for visualization);</li>
-        <li><strong>3rd column</strong>: Corresponding perception & planning output;</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div style="height: 16px;"></div>
-
-  <!-- Clip 1 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 1</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip1-baseline.mp4" type="video/mp4">
-          </video>
+              <!-- </div> -->
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2502.13144.pdf"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a href="https://github.com/hustvl/RAD"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                      </a>
+                  </span>
+                </div>
+    
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip1-rad2.mp4" type="video/mp4">
-          </video>
+    
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                High-level autonomous driving requires motion planners capable of modeling multimodal future uncertainties while ensuring robust closed-loop stability. Although diffusion-based generative planners excel at capturing complex trajectory distributions, they often suffer from optimization instabilities and a lack of effective negative feedback during imitation learning. In this paper, we propose RAD-2, a unified framework that synergizes a diffusion-based trajectory generator with a reinforcement learning (RL)-trained discriminator. By decoupling the planning task, our framework employs a Diffusion Transformer to generate diverse candidates, while a Transformer-based discriminator is optimized via Temporally Consistent Group Relative Policy Optimization (TC-GRPO), a structured optimization paradigm that enforces behavioral coherence to mitigate the inherent challenges of credit assignment in high-dimensional action spaces. Furthermore, we introduce On-policy Generator Optimization, which transforms closed-loop feedback into structured geometric corrections to iteratively shift the generator's probability mass toward high-reward manifolds. To facilitate rapid policy evolution, we develop our RL pipeline based on BEV-Warp, a high-throughput, feature-level simulation environment that enables efficient closed-loop evaluation by directly manipulating Bird’s-Eye View features via spatial warping. Our model is pretrained on massive real-world driving datasets and further refined through closed-loop optimization across a diverse suite of safety-critical and efficiency-oriented scenarios. Comprehensive evaluations and ablation studies validate the contribution of each component, showing that our approach outperforms competitive baselines and achieves a 56% reduction in collision rate relative to strong diffusion-based planners while maintaining superior navigation efficiency.<br><br><br>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    
+    </section>
+    
+    <section class="section" id="framework">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2">Framework</h2>
+        <div class="content has-text-justified">
+          RAD-2 synergizes a Diffusion-based generator 𝒢 and a Transformer-based discriminator 𝒟 within a cyclic optimization pipeline:
+          (a) Initial Pre-training: 𝒢 is initialized via imitation learning to capture multi-modal trajectory priors from expert demonstrations.
+          (b) Closed-loop Data Collection: The joint AD policy, comprising 𝒢 for trajectory generation and 𝒟 for selection, performs continuous interactions with the BEV-Warp environment to efficiently collect rollout data for reward computation and subsequent RL training.
+          (c) Discriminator Optimization: 𝒟 is optimized via Temporally Consistent Group Relative Policy Optimization, leveraging the collected rollout data to refine its scoring capability.
+          (d) Generator Optimization: Through On-policy Generator Optimization, 𝒢 is refined using geometric corrections derived from low-reward rollouts to shift its distribution toward optimal driving behaviors.
+        </div>
+        <img src="./static/images/rad2-framev2.png">
+      </div>
+    </section>
+      
+    <section class="section" id="real-world">
+      <div class="container is-max-desktop">
+        <h2 class="title is-2" style="white-space: nowrap;">Closed-loop Evaluation in Real-World</h2>
+        
+        <!-- 美化版切换按钮组（带选中高亮） -->
+        <div style="margin: 12px 0; display: flex; gap: 4px; background: #f0f0f0; border-radius: 8px; padding: 4px; width: fit-content;">
+          <button id="btnBilibili" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #fb7299; color: white;">Bilibili</button>
+          <button id="btnYoutube" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #e0e0e0; color: #333;">YouTube</button>
+        </div>
+    
+        <!-- 视频嵌入容器 -->
+        <div style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; overflow: hidden;">
+          <iframe 
+            id="videoFrame" 
+            src="https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0" 
+            style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+    
+    <script>
+    const btnB = document.getElementById('btnBilibili');
+    const btnY = document.getElementById('btnYoutube');
+    const frame = document.getElementById('videoFrame');
+    
+    // 初始化默认选中B站
+    let currentSource = 'bilibili';
+    
+    // 切换按钮样式 + 视频源
+    const switchSource = (source) => {
+      if (source === currentSource) return; // 重复点击不重复加载
+      
+      if (source === 'bilibili') {
+        // B站样式：品牌粉+白字
+        btnB.style.background = '#fb7299';
+        btnB.style.color = 'white';
+        btnY.style.background = '#e0e0e0';
+        btnY.style.color = '#333';
+        frame.src = "https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0";
+        currentSource = 'bilibili';
+      } else {
+        // YouTube样式：品牌红+白字
+        btnY.style.background = '#ff0000';
+        btnY.style.color = 'white';
+        btnB.style.background = '#e0e0e0';
+        btnB.style.color = '#333';
+        frame.src = "https://www.youtube.com/embed/ohtIe1eUiOU?autoplay=0";
+        currentSource = 'youtube';
+      }
+    };
+    
+    // 绑定点击事件
+    btnB.addEventListener('click', () => switchSource('bilibili'));
+    btnY.addEventListener('click', () => switchSource('youtube'));
+    </script>
+    
+    <style>
+      .container.fixed-width {
+        max-width: 1000px; 
+        margin: 0 auto;
+      }
+      .title-container {
+        padding-left: 0px;  
+      }
+      .columns {
+        margin-top: 20px; 
+      }
+    </style>
+    
+    <head>
+      <style>
+        .video-container-wrapper {
+          background-color: #f0f0f0; 
+          padding: 20px; 
+          border-radius: 5px; 
+        }
+    
+        .video-container-wrapper video {
+          width: 100%; 
+          border-radius: 8px; 
+        }
+    
+        .columns {
+          margin-bottom: 20px; 
+        }
+    
+        .background-container {
+          background-color: #f0f0f0; 
+          padding: 30px; 
+          border-radius: 15px; 
+        }
+      </style>
+    </head>
+    
+    <link rel="stylesheet" href="./style.css">
 
-  <!-- Clip 2 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 2</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip2-baseline.mp4" type="video/mp4">
-          </video>
+    <section class="section" id="bev-warp">
+      <div class="container fixed-width">
+        <div class="title-container"> 
+          <h2 class="title is-2">Closed-loop Evaluation in BEV-Warp Environment</h2> 
+          <div style="height: 3px;"></div>
+          <p class="subtitle is-5">Top: IL Baseline | Bottom: RAD-2</p>  
+        
+          <!-- 新增：视频内容说明（清晰、专业、美观） -->
+        <div style="height: 8px;"></div>
+          <div class="content has-text-grey-dark" style="line-height: 1.7; font-size: 1.05rem;">
+            <p><strong>Video Content Explanation:</strong></p>
+            <ul style="padding-left: 1.2em; margin: 0;">
+              <li style="margin-bottom: 0.25rem;"><strong>1st column</strong>: Reference Input (front-view camera visualization only; full input is multi-dimensional);</li>
+              <li style="margin-bottom: 0.25rem;"><strong>2nd column</strong>: Warped BEV Feature Input (dimensionally reduced for visualization);</li>
+              <li><strong>3rd column</strong>: Corresponding perception & planning output;</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip2-rad2.mp4" type="video/mp4">
-          </video>
+        
+        <div style="height: 16px;"></div>
+      
+        <!-- Clip 1 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 1</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip1-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip1-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 3 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 3</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip3-baseline.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 2 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 2</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip2-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip2-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip3-rad2.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 3 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 3</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip3-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip3-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 4 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 4</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip4-baseline.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 4 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 4</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip4-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip4-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip4-rad2.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 5 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 5</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip5-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip5-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 5 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 5</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip5-baseline.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 6 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 6</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip6-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip6-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip5-rad2.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 7 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 7</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip7-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip7-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 6 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 6</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip6-baseline.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 8 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 8</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip8-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip8-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip6-rad2.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 9 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 9</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip9-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip9-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 7 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 7</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip7-baseline.mp4" type="video/mp4">
-          </video>
+      
+        <!-- Clip 10 -->
+        <div class="container background-container clip-row">
+          <div class="clip-label">Clip 10</div>
+          <div class="columns is-variable is-2 is-fullwidth">
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">IL Baseline</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip10-baseline.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <p class="has-text-weight-semibold">RAD-2</p>
+                <video class="video-container" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/clip10-rad2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
+      
       </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip7-rad2.mp4" type="video/mp4">
-          </video>
-        </div>
+    </section>      
+    
+    <div style="margin-top: 30px;"></div>
+    
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>@article{RAD,
+      title={RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning},
+      author={Gao, Hao and Chen, Shaoyu and Jiang, Bo and Liao, Bencheng and Shi, Yiang and Guo, Xiaoyang and Pu, Yuechuan and Yin, Haoran and Li, Xiangyu and Zhang, Xinbang and Zhang, Ying and Liu, Wenyu and Zhang, Qian and Wang, Xinggang},
+      journal={arXiv preprint arXiv:2502.13144},
+      year={2025}
+    }</code></pre>
       </div>
-    </div>
-  </div>
-
-  <!-- Clip 8 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 8</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip8-baseline.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip8-rad2.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 9 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 9</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip9-baseline.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip9-rad2.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clip 10 -->
-  <div class="container background-container clip-row">
-    <div class="clip-label">Clip 10</div>
-    <div class="columns is-variable is-2 is-fullwidth">
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">IL Baseline</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip10-baseline.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <p class="has-text-weight-semibold">RAD-2</p>
-          <video class="video-container" autoplay controls muted loop playsinline>
-            <source src="./static/videos/clip10-rad2.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-  
-<div style="margin-top: 30px;"></div>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3">BibTeX</h2>
-    <pre><code>@article{RAD,
-  title={RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning},
-  author={Gao, Hao and Chen, Shaoyu and Jiang, Bo and Liao, Bencheng and Shi, Yiang and Guo, Xiaoyang and Pu, Yuechuan and Yin, Haoran and Li, Xiangyu and Zhang, Xinbang and Zhang, Ying and Liu, Wenyu and Zhang, Qian and Wang, Xinggang},
-  journal={arXiv preprint arXiv:2502.13144},
-  year={2025}
-}</code></pre>
-  </div>
-</section>
+    </section>
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <!-- <a class="icon-link"
-         href="https://arxiv.org/abs/2310.08528">
-        <i class="fas fa-file-pdf"></i>
-      </a>  -->
       <a class="icon-link" href="https://github.com/hustvl" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
@@ -539,6 +598,16 @@ btnY.addEventListener('click', () => switchSource('youtube'));
     </div>
   </div>
 </footer>
+
+<div class="sidebar">
+  <div class="sidebar-sticky">
+    <p>Quick Navigation</p>
+    <a href="#framework">⚡ Framework</a>
+    <a href="#real-world">🎥 Real-World Evaluation</a>
+    <a href="#bev-warp">🧪 BEV-Warp Evaluation</a>
+    <a href="#bibtex">📄 BibTeX</a>
+  </div>
+</div>
 
 </body>
 </html>
