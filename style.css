@@ -3,7 +3,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 25px; /* 加大clip间距，更清爽 */
+  margin-bottom: 15px; /* 加大clip间距，更清爽 */
 }
 
 .clip-label {
@@ -19,16 +19,16 @@
   display: flex;
   flex-direction: column; /* 关键：改成竖排 */
   gap: 12px; /* 两个视频之间的间距 */
-  width: 80%;
+  width: 100%;
 }
 
 /* 每个视频占满宽度 */
 .clip-row .columns .column {
-  width: 80% !important;
+  width: 100% !important;
 }
 
 .video-container {
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
