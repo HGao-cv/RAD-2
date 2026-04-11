@@ -13,25 +13,17 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/hust.png">
 
@@ -68,7 +60,7 @@
       color: #1f5abb;
     }
 
-    /* 让主体 + 侧边栏并排 */
+    /* 主体 + 侧边栏 并排布局 */
     .page-container {
       display: flex;
       max-width: 1600px;
@@ -84,7 +76,7 @@
       flex-shrink: 0;
     }
 
-    /* clip label 紧贴左上角（你之前要的效果） */
+    /* clip label 紧贴左上角 */
     .clip-label {
       min-width: 70px;
       font-weight: 600;
@@ -93,6 +85,28 @@
       margin-top: 0px !important;
       white-space: nowrap;
     }
+
+    /* 统一页面样式 */
+    .container.fixed-width {
+      max-width: 1000px; 
+      margin: 0 auto;
+    }
+    .title-container {
+      padding-left: 0px;  
+    }
+    .columns {
+      margin-top: 20px; 
+      margin-bottom: 20px; 
+    }
+    .background-container {
+      background-color: #f0f0f0; 
+      padding: 30px; 
+      border-radius: 15px; 
+    }
+    .video-container {
+      width: 100%; 
+      border-radius: 8px; 
+    }
   </style>
   
 </head>
@@ -100,7 +114,7 @@
 
 <script src="https://hgao-cv.github.io/Research-portal/nav.js"></script>
 
-<!-- 整体布局：主体 + 侧边栏 -->
+<!-- 整体布局：主体 + 侧边栏（已正确包裹） -->
 <div class="page-container">
 
   <!-- 主要内容 -->
@@ -147,31 +161,28 @@
                 <span class="author-block"><sup>†</sup>Project Lead.</span>
                 <span class="author-block"><sup>✉</sup>Corresponding Author.</span>
     
-              <!-- </div> -->
-              <div class="column has-text-centered">
-                <div class="publication-links">
-                  <!-- PDF Link. -->
-                  <span class="link-block">
-                    <a href="https://arxiv.org/pdf/2502.13144.pdf"
-                       class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Paper</span>
-                    </a>
-                  </span>
-                  <!-- Code Link. -->
-                  <span class="link-block">
-                    <a href="https://github.com/hustvl/RAD"
-                       class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fab fa-github"></i>
-                      </span>
-                      <span>Code</span>
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+                    <span class="link-block">
+                      <a href="https://arxiv.org/pdf/2502.13144.pdf"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
                       </a>
-                  </span>
+                    </span>
+                    <span class="link-block">
+                      <a href="https://github.com/hustvl/RAD"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                        </a>
+                    </span>
+                  </div>
                 </div>
-    
               </div>
             </div>
           </div>
@@ -190,7 +201,6 @@
           </div>
         </div>
       </div>
-    
     </section>
     
     <section class="section" id="framework">
@@ -211,13 +221,11 @@
       <div class="container is-max-desktop">
         <h2 class="title is-2" style="white-space: nowrap;">Closed-loop Evaluation in Real-World</h2>
         
-        <!-- 美化版切换按钮组（带选中高亮） -->
         <div style="margin: 12px 0; display: flex; gap: 4px; background: #f0f0f0; border-radius: 8px; padding: 4px; width: fit-content;">
           <button id="btnBilibili" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #fb7299; color: white;">Bilibili</button>
           <button id="btnYoutube" class="button" style="flex: 0 0 120px; border-radius: 6px; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; background: #e0e0e0; color: #333;">YouTube</button>
         </div>
     
-        <!-- 视频嵌入容器 -->
         <div style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; overflow: hidden;">
           <iframe 
             id="videoFrame" 
@@ -229,82 +237,6 @@
       </div>
     </section>
     
-    <script>
-    const btnB = document.getElementById('btnBilibili');
-    const btnY = document.getElementById('btnYoutube');
-    const frame = document.getElementById('videoFrame');
-    
-    // 初始化默认选中B站
-    let currentSource = 'bilibili';
-    
-    // 切换按钮样式 + 视频源
-    const switchSource = (source) => {
-      if (source === currentSource) return; // 重复点击不重复加载
-      
-      if (source === 'bilibili') {
-        // B站样式：品牌粉+白字
-        btnB.style.background = '#fb7299';
-        btnB.style.color = 'white';
-        btnY.style.background = '#e0e0e0';
-        btnY.style.color = '#333';
-        frame.src = "https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0";
-        currentSource = 'bilibili';
-      } else {
-        // YouTube样式：品牌红+白字
-        btnY.style.background = '#ff0000';
-        btnY.style.color = 'white';
-        btnB.style.background = '#e0e0e0';
-        btnB.style.color = '#333';
-        frame.src = "https://www.youtube.com/embed/ohtIe1eUiOU?autoplay=0";
-        currentSource = 'youtube';
-      }
-    };
-    
-    // 绑定点击事件
-    btnB.addEventListener('click', () => switchSource('bilibili'));
-    btnY.addEventListener('click', () => switchSource('youtube'));
-    </script>
-    
-    <style>
-      .container.fixed-width {
-        max-width: 1000px; 
-        margin: 0 auto;
-      }
-      .title-container {
-        padding-left: 0px;  
-      }
-      .columns {
-        margin-top: 20px; 
-      }
-    </style>
-    
-    <head>
-      <style>
-        .video-container-wrapper {
-          background-color: #f0f0f0; 
-          padding: 20px; 
-          border-radius: 5px; 
-        }
-    
-        .video-container-wrapper video {
-          width: 100%; 
-          border-radius: 8px; 
-        }
-    
-        .columns {
-          margin-bottom: 20px; 
-        }
-    
-        .background-container {
-          background-color: #f0f0f0; 
-          padding: 30px; 
-          border-radius: 15px; 
-        }
-      </style>
-    </head>
-    
-    <link rel="stylesheet" href="./style.css">
-
     <section class="section" id="bev-warp">
       <div class="container fixed-width">
         <div class="title-container"> 
@@ -312,8 +244,7 @@
           <div style="height: 3px;"></div>
           <p class="subtitle is-5">Top: IL Baseline | Bottom: RAD-2</p>  
         
-          <!-- 新增：视频内容说明（清晰、专业、美观） -->
-        <div style="height: 8px;"></div>
+          <div style="height: 8px;"></div>
           <div class="content has-text-grey-dark" style="line-height: 1.7; font-size: 1.05rem;">
             <p><strong>Video Content Explanation:</strong></p>
             <ul style="padding-left: 1.2em; margin: 0;">
@@ -555,7 +486,6 @@
             </div>
           </div>
         </div>
-      
       </div>
     </section>      
     
@@ -565,49 +495,69 @@
       <div class="container is-max-desktop content">
         <h2 class="title is-3">BibTeX</h2>
         <pre><code>@article{RAD,
-      title={RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning},
-      author={Gao, Hao and Chen, Shaoyu and Jiang, Bo and Liao, Bencheng and Shi, Yiang and Guo, Xiaoyang and Pu, Yuechuan and Yin, Haoran and Li, Xiangyu and Zhang, Xinbang and Zhang, Ying and Liu, Wenyu and Zhang, Qian and Wang, Xinggang},
-      journal={arXiv preprint arXiv:2502.13144},
-      year={2025}
-    }</code></pre>
+  title={RAD: Training an End-to-End Driving Policy via Large-Scale 3DGS-based Reinforcement Learning},
+  author={Gao, Hao and Chen, Shaoyu and Jiang, Bo and Liao, Bencheng and Shi, Yiang and Guo, Xiaoyang and Pu, Yuechuan and Yin, Haoran and Li, Xiangyu and Zhang, Xinbang and Zhang, Ying and Liu, Wenyu and Zhang, Qian and Wang, Xinggang},
+  journal={arXiv preprint arXiv:2502.13144},
+  year={2025}
+}</code></pre>
       </div>
     </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/hustvl" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            The source code is borrowed from <a
-              href="https://github.com/hustvl/4DGaussians">nerfies</a>,
-              we thank the authors for sharing the templates.
-          </p>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="https://github.com/hustvl" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
+    </footer>
+
+  </div>
+  <!-- 主要内容结束 -->
+
+  <!-- 右侧侧边栏（已正确放入布局内） -->
+  <div class="sidebar">
+    <div class="sidebar-sticky">
+      <p>Quick Navigation</p>
+      <a href="#framework">⚡ Framework</a>
+      <a href="#real-world">🎥 Real-World Evaluation</a>
+      <a href="#bev-warp">🧪 BEV-Warp Evaluation</a>
+      <a href="#bibtex">📄 BibTeX</a>
     </div>
   </div>
-</footer>
 
-<div class="sidebar">
-  <div class="sidebar-sticky">
-    <p>Quick Navigation</p>
-    <a href="#framework">⚡ Framework</a>
-    <a href="#real-world">🎥 Real-World Evaluation</a>
-    <a href="#bev-warp">🧪 BEV-Warp Evaluation</a>
-    <a href="#bibtex">📄 BibTeX</a>
-  </div>
 </div>
+<!-- 布局结束 -->
+
+<script>
+const btnB = document.getElementById('btnBilibili');
+const btnY = document.getElementById('btnYoutube');
+const frame = document.getElementById('videoFrame');
+let currentSource = 'bilibili';
+
+const switchSource = (source) => {
+  if (source === currentSource) return;
+  
+  if (source === 'bilibili') {
+    btnB.style.background = '#fb7299';
+    btnB.style.color = 'white';
+    btnY.style.background = '#e0e0e0';
+    btnY.style.color = '#333';
+    frame.src = "https://player.bilibili.com/player.html?bvid=BV1ANQTB9E9q&page=1&high_quality=1&autoplay=0";
+  } else {
+    btnY.style.background = '#ff0000';
+    btnY.style.color = 'white';
+    btnB.style.background = '#e0e0e0';
+    btnB.style.color = '#333';
+    frame.src = "https://www.youtube.com/embed/ohtIe1eUiOU?autoplay=0";
+  }
+  currentSource = source;
+};
+
+btnB.addEventListener('click', () => switchSource('bilibili'));
+btnY.addEventListener('click', () => switchSource('youtube'));
+</script>
 
 </body>
 </html>
