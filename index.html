@@ -136,14 +136,11 @@
   <div class="container is-max-desktop">
     <h2 class="title is-2">Framework</h2>
     <div class="content has-text-justified">
-      RAD takes a three-stage training paradigm. In the perception pre-training, ground-truths of map and agent are used to guide instance-level tokens to encode corresponding information. In the planning pre-training stage, large-scale driving demonstrations are used to initialize the action distribution. In the reinforced post-training stage, RL and IL synergistically fine-tune the AD policy.
-
       RAD-2 synergizes a Diffusion-based generator 𝒢 and a Transformer-based discriminator 𝒟 within a cyclic optimization pipeline:
       (a) Initial Pre-training: 𝒢 is initialized via imitation learning to capture multi-modal trajectory priors from expert demonstrations.
       (b) Closed-loop Data Collection: The joint AD policy, comprising 𝒢 for trajectory generation and 𝒟 for selection, performs continuous interactions with the BEV-Warp environment to efficiently collect rollout data for reward computation and subsequent RL training.
       (c) Discriminator Optimization: 𝒟 is optimized via Temporally Consistent Group Relative Policy Optimization, leveraging the collected rollout data to refine its scoring capability.
       (d) Generator Optimization: Through On-policy Generator Optimization, 𝒢 is refined using geometric corrections derived from low-reward rollouts to shift its distribution toward optimal driving behaviors.
-      
     </div>
     <img src="./static/images/rad2-framev2.png">
   </div>
