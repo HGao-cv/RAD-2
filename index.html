@@ -134,7 +134,17 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-2" style="white-space: nowrap;">Real-World Closed-loop Evaluation</h2>
+    <h2 class="title is-2">Framework</h2>
+    <div class="content has-text-justified">
+      RAD takes a three-stage training paradigm. In the perception pre-training, ground-truths of map and agent are used to guide instance-level tokens to encode corresponding information. In the planning pre-training stage, large-scale driving demonstrations are used to initialize the action distribution. In the reinforced post-training stage, RL and IL synergistically fine-tune the AD policy.
+    </div>
+    <img src="./static/images/framework.png">
+  </div>
+</section>
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="white-space: nowrap;">Closed-loop Evaluation in Real-World</h2>
     
     <!-- 美化版切换按钮组（带选中高亮） -->
     <div style="margin: 12px 0; display: flex; gap: 4px; background: #f0f0f0; border-radius: 8px; padding: 4px; width: fit-content;">
@@ -190,16 +200,6 @@ btnB.addEventListener('click', () => switchSource('bilibili'));
 btnY.addEventListener('click', () => switchSource('youtube'));
 </script>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-2">Framework</h2>
-    <div class="content has-text-justified">
-      RAD takes a three-stage training paradigm. In the perception pre-training, ground-truths of map and agent are used to guide instance-level tokens to encode corresponding information. In the planning pre-training stage, large-scale driving demonstrations are used to initialize the action distribution. In the reinforced post-training stage, RL and IL synergistically fine-tune the AD policy.
-    </div>
-    <img src="./static/images/framework.png">
-  </div>
-</section>
-
 <style>
   .container.fixed-width {
     max-width: 1000px; 
@@ -242,7 +242,7 @@ btnY.addEventListener('click', () => switchSource('youtube'));
   
 <div class="container fixed-width">
   <div class="title-container"> 
-    <h2 class="title is-2">IL Baseline vs RAD-2: Closed-loop Evaluation in BEV-Warp Environment</h2> 
+    <h2 class="title is-2">Closed-loop Evaluation in BEV-Warp Environment</h2> 
     <div style="height: 3px;"></div>
     <p class="subtitle is-5">Top: IL Baseline | Bottom: RAD-2</p>  
   
