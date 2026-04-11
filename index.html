@@ -238,28 +238,29 @@ btnY.addEventListener('click', () => switchSource('youtube'));
   </style>
 </head>
 
+<link rel="stylesheet" href="./style.css">
+  
 <div class="container fixed-width">
   <div class="title-container"> 
-    <h2 class="title is-2">IL-only Policy vs RAD: Closed-loop Evaluation</h2> 
+    <h2 class="title is-2">IL-only Policy vs RAD-2: Closed-loop Evaluation</h2> 
     <div style="height: 3px;"></div>
-    <p class="subtitle is-5">Left: IL-only Policy| Right: RAD</p>  
+    <p class="subtitle is-5">Left: IL Baseline | Right: RAD-2</p>  
   </div>
-  <div style="height: 10px;"></div>
+  <div style="height: 16px;"></div>
 
-  <div class="container background-container">
-    <h3 class="title is-4 has-text-centered">Clip 1 : Detour; Right-turn</h3>
-    <div class="columns is-multiline is-variable is-2 is-centered">  
-      <div class="column is-half">  
+  <!-- Clip 1 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 1</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
         <div class="content">
-          <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>  
           <video class="video-container" autoplay controls muted loop playsinline>
             <source src="./static/videos/clip_1726267373699-IL.mp4" type="video/mp4">
           </video>
         </div>
       </div>
-      <div class="column is-half">  
+      <div class="column">
         <div class="content">
-          <p class="content is-5 has-text-left">RAD: Success</p>  
           <video class="video-container" autoplay controls muted loop playsinline>
             <source src="./static/videos/clip_1726267373699-RAD.mp4" type="video/mp4">
           </video>
@@ -267,24 +268,20 @@ btnY.addEventListener('click', () => switchSource('youtube'));
       </div>
     </div>
   </div>
-  
-  <div style="height: 10px;"></div>
-  
-  <div class="container background-container">
-    <h3 class="title is-4 has-text-centered">Clip 2 : Yield to Pedestrians</h3>
-    <div class="columns is-multiline is-variable is-2 is-centered">
-      <!-- Row 2 -->
-      <div class="column is-half">
+
+  <!-- Clip 2 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 2</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
         <div class="content">
-          <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
           <video class="video-container" autoplay controls muted loop playsinline>
             <source src="./static/videos/clip_1726273717199-IL.mp4" type="video/mp4">
           </video>
         </div>
       </div>
-      <div class="column is-half">
+      <div class="column">
         <div class="content">
-          <p class="content is-5 has-text-left">RAD: Success</p>
           <video class="video-container" autoplay controls muted loop playsinline>
             <source src="./static/videos/clip_1726273717199-RAD.mp4" type="video/mp4">
           </video>
@@ -292,202 +289,177 @@ btnY.addEventListener('click', () => switchSource('youtube'));
       </div>
     </div>
   </div>
-  
-  <div style="height: 10px;"></div>
-  
-  <div class="container background-container">
-    <h3 class="title is-4 has-text-centered">Clip 3 : U-turn</h3>
-    <div class="columns is-multiline is-variable is-2 is-centered">
-        <!-- Row 3 -->
-        <div class="column is-half">
-            <div class="content">
-                <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                <video class="video-container" autoplay controls muted loop playsinline>
-                    <source src="./static/videos/clip_1726300101299-IL.mp4" type="video/mp4">
-                </video>
-            </div>
+
+  <!-- Clip 3 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 3</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726300101299-IL.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="column is-half">
-            <div class="content">
-                <p class="content is-5 has-text-left">RAD: Success</p>
-                <video class="video-container" autoplay controls muted loop playsinline>
-                    <source src="./static/videos/clip_1726300101299-RAD.mp4" type="video/mp4">
-                </video>
-            </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726300101299-RAD.mp4" type="video/mp4">
+          </video>
         </div>
+      </div>
     </div>
   </div>
-  <div style="height: 10px;"></div>
-  
-  <div class="container background-container">
-    <h3 class="title is-4 has-text-centered">Clip 4 : Crawl in Dense Traffic</h3>
-    <div class="columns is-multiline is-variable is-2 is-centered">
-        <!-- Row 4 -->
-        <div class="column is-half">
-            <div class="content">
-                <p class="content is-5 has-text-left">IL-only Policy: Position Deviation</p>
-                <video class="video-container" autoplay controls muted loop playsinline>
-                    <source src="./static/videos/clip_1726710854599-IL.mp4" type="video/mp4">
-                </video>
-            </div>
+
+  <!-- Clip 4 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 4</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726710854599-IL.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="column is-half">
-            <div class="content">
-                <p class="content is-5 has-text-left">RAD: Success</p>
-                <video class="video-container" autoplay controls muted loop playsinline>
-                    <source src="./static/videos/clip_1726710854599-RAD.mp4" type="video/mp4">
-                </video>
-            </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726710854599-RAD.mp4" type="video/mp4">
+          </video>
         </div>
+      </div>
     </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 5 : Unprotected Left-turn</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 5 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726362331499-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726362331499-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 5 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 5</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726362331499-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726362331499-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 6 : Crawl in Dense Traffic</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 6 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726613460899-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726613460899-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 6 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 6</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726613460899-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726613460899-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 7 : Unprotected Left-turn</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 7 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726923764200-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726923764200-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 7 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 7</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726923764200-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726923764200-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 8 : Detour; Traverse Narrow Lane</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 8 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726267968399-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726267968399-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 8 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 8</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726267968399-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726267968399-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 9 : Unprotected Left-turn</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 9 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Dynamic Collision</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726723784999-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726723784999-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 9 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 9</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726723784999-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726723784999-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="height: 10px;"></div>
 
-  <div class="container background-container">
-      <h3 class="title is-4 has-text-centered">Clip 10 : Stop-and-Start Following</h3>
-      <div class="columns is-multiline is-variable is-2 is-centered">
-          <!-- Row 10 -->
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">IL-only Policy: Heading Deviation</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726268262099-IL.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
-          <div class="column is-half">
-              <div class="content">
-                  <p class="content is-5 has-text-left">RAD: Success</p>
-                  <video class="video-container" autoplay controls muted loop playsinline>
-                      <source src="./static/videos/clip_1726268262099-RAD.mp4" type="video/mp4">
-                  </video>
-              </div>
-          </div>
+  <!-- Clip 10 -->
+  <div class="container background-container clip-row">
+    <div class="clip-label">Clip 10</div>
+    <div class="columns is-variable is-2 is-fullwidth">
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726268262099-IL.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="./static/videos/clip_1726268262099-RAD.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
-
+  
 <div style="margin-top: 30px;"></div>
 
 <section class="section" id="BibTeX">
