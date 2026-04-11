@@ -10,7 +10,7 @@
   min-width: 70px;
   font-weight: 600;
   font-size: 1.1rem;
-  padding-top: 10px;
+  padding-top: 4px;
   white-space: nowrap;
 }
 
@@ -19,16 +19,16 @@
   display: flex;
   flex-direction: column; /* 关键：改成竖排 */
   gap: 12px; /* 两个视频之间的间距 */
-  width: 100%;
+  width: 80%;
 }
 
 /* 每个视频占满宽度 */
 .clip-row .columns .column {
-  width: 100% !important;
+  width: 80% !important;
 }
 
 .video-container {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
