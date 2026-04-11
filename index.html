@@ -242,10 +242,22 @@ btnY.addEventListener('click', () => switchSource('youtube'));
   
 <div class="container fixed-width">
   <div class="title-container"> 
-    <h2 class="title is-2">IL-only Policy vs RAD-2: Closed-loop Evaluation</h2> 
+    <h2 class="title is-2">IL Baseline vs RAD-2: Closed-loop Evaluation in BEV-Warp Environment</h2> 
     <div style="height: 3px;"></div>
     <p class="subtitle is-5">Top: IL Baseline | Bottom: RAD-2</p>  
+  
+    <!-- 新增：视频内容说明（清晰、专业、美观） -->
+    <div style="height: 8px;"></div>
+    <div class="content is-small has-text-grey-dark" style="line-height: 1.6;">
+      <p><strong>Video Content Explanation:</strong></p>
+      <ul style="padding-left: 1.2em; margin: 0;">
+        <li><strong>1st column</strong>: Reference Input (front-view camera visualization only; full input is multi-dimensional);</li>
+        <li><strong>2nd column</strong>: Warped BEV Feature Input (dimensionally reduced for visualization);</li>
+        <li><strong>3rd column</strong>: Corresponding perception & planning output;</li>
+      </ul>
+    </div>
   </div>
+  
   <div style="height: 16px;"></div>
 
   <!-- Clip 1 -->
