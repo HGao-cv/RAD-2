@@ -1,0 +1,32 @@
+/* 视频对比页面专用样式 */
+.clip-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 14px;
+}
+
+.clip-label {
+  min-width: 65px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  white-space: nowrap;
+}
+
+.video-container {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.background-container {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.columns.is-fullwidth {
+  width: 100%;
+}
